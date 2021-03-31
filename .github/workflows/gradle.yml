@@ -24,5 +24,32 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
-    - name: junit test
-      run: ./gradlew test
+      
+      
+    - name: Unit Test
+      run: ./gradlew test -x jacocoTestReport
+
+    - name: Publish Test Report Summary
+      uses: mikepenz/action-junit-report@v2
+      if: ${{ always() }}
+      with:
+        report_paths: '**/build/test-results/test/TEST-*.xml'
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Deploy Test Report
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: build/reports/tests/test
+        destination_dir: junit
+
+    - name: Test Code Coverage
+      run: ./gradlew jacocoTestReport jacocoTestCoverageVerification
+
+    - name: Deploy Code Coverage Report
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: build/reports/jacoco/test/html
+        destination_dir: jacoco
+
