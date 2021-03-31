@@ -18,4 +18,12 @@ class CalculatorTest {
         assertAll(
                 ()->assertEquals(3,cal.add(1,2)));
     }
+
+    @Test
+    void sub() {
+        assertAll(
+                ()->assertEquals(-1,cal.sub(1,2)));
+    }
+
+
 }
