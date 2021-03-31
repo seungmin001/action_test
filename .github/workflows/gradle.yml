@@ -27,7 +27,7 @@ jobs:
       
       
     - name: Unit Test
-      run: ./gradlew test -x jacocoTestReport
+      run: ./gradlew test
 
     - name: Publish Test Report Summary
       uses: mikepenz/action-junit-report@v2
