@@ -35,7 +35,7 @@ pmd {
     toolVersion = "6.21.0"
 }
 checkstyle {
-    toolVersion= '8.35'
+    toolVersion= '8.41'
     configFile= file("config/checkstyle/checkstyle.xml")
     showViolations= true
     ignoreFailures= false
