@@ -36,7 +36,7 @@ pmd {
 }
 checkstyle {
     toolVersion= '8.35'
-    configFile= file("$projectDir/google_checks.xml")
+    configFile= file("config/checkstyle/checkstyle.xml")
     showViolations= true
     ignoreFailures= false
 }
