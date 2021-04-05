@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'jacoco'
     id 'checkstyle'
+    id 'pmd'
 }
 
 group 'org.example'
@@ -27,14 +28,9 @@ jacoco {
 
 jacocoTestReport {
     dependsOn test // tests are required to run before generating the report
-    reports {
-        xml.enabled true
-    }
 }
 
 pmd {
     consoleOutput = true
     toolVersion = "6.21.0"
-    rulesMinimumPriority = 5
-    ruleSets = ["category/java/errorprone.xml", "category/java/bestpractices.xml"]
 }
