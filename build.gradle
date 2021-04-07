@@ -29,7 +29,7 @@ jacoco {
 jacocoTestReport {
     dependsOn test // tests are required to run before generating the report
 }
-
+/*
 pmd {
     consoleOutput = true
     toolVersion = "6.21.0"
@@ -38,4 +38,4 @@ checkstyle {
     toolVersion= '8.41.1'
     showViolations= true
     ignoreFailures= true
-}
+}*/
